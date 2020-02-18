@@ -1,5 +1,6 @@
 <!-- app/views/tasks/index.html.erb -->
 <% @tasks.each do |task| %>
   <h2><%= task.title %></h2>
-  <p><%= task.details %></p>
+  <!-- <p><%= task.details %></p> -->
+  <%= link_to "See specific task", task_path(task.id) %>
 <% end %>

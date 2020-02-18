@@ -1,6 +1,16 @@
 <!-- app/views/tasks/index.html.erb -->
-<% @tasks.each do |task| %>
-  <h2><%= task.title %></h2>
-  <!-- <p><%= task.details %></p> -->
-  <%= link_to "See specific task", task_path(task.id) %>
-<% end %>
+<ul>
+  <% @tasks.each do |task| %>
+    <li><input type="checkbox" value="1" name="task[completed]" id="task_completed" <%= task.completed ? "checked": "" %> disabled>
+
+
+      <%= task.title %>
+    <!-- <p><%= task.details %></p> -->
+    <%= link_to "See specific task", task_path(task.id) %>
+    </li>
+ <%= link_to "Delete task", delete_task_path(task.id), method:"delete" %>
+  <% end %>
+</ul>
+<br>
+<p>but perhaps you want to create a new task</p>
+ <%= link_to "Create a new task", new_task_path %>
